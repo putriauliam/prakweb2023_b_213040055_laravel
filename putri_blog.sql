@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 02, 2023 at 02:55 AM
+-- Generation Time: Nov 02, 2023 at 09:52 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -54,10 +54,11 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(5, '2014_10_12_000000_create_users_table', 1),
-(6, '2014_10_12_100000_create_password_reset_tokens_table', 1),
-(7, '2019_08_19_000000_create_failed_jobs_table', 1),
-(8, '2019_12_14_000001_create_personal_access_tokens_table', 1);
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
+(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(5, '2023_11_02_041817_create_posts_table', 1);
 
 -- --------------------------------------------------------
 
@@ -93,6 +94,32 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `posts`
+--
+
+CREATE TABLE `posts` (
+  `id` bigint UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `excerpt` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `body` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `published_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `title`, `slug`, `excerpt`, `body`, `published_at`, `created_at`, `updated_at`) VALUES
+(1, 'Judul Pertama', 'judul-pertama', 'Lorem ipsum pertama', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit in voluptas saepe officia nihil quo soluta, sed laboriosam vel minima praesentium odit voluptatum perferendis ducimus tempore explicabo, sequi molestias assumenda impedit, dolorem numquam voluptate! Incidunt voluptates deleniti sapiente perferendis, dolor odio! Maiores molestiae voluptatum modi delectus. Quam quisquam at numquam qui laboriosam.</p> <p>Sed ipsam reiciendis commodi nemo laboriosam cum autem earum illo! Non fugiat dolorem molestias, quisquam doloremque, quo eos consequuntur nam autem nesciunt amet? Doloribus illo accusamus quas non laboriosam explicabo sit vitae cumque fugiat repellendus, dolore, veritatis consequatur nihil voluptatibus ad ex inventore assumenda neque! Consequuntur veritatis doloremque ea! Fugit, distinctio consequatur! Dolorem non sapiente corrupti iusto.</p> <p>Aliquam optio fuga debitis doloremque architecto beatae temporibus, dolores ducimus earum atque non at rem odio aliquid cumque? Eius beatae eligendi id ab sit maxime ea veniam doloribus dolorum dolorem, consequatur cum numquam natus ipsa voluptatem deleniti porro? Voluptas, possimus nostrum.</p>', NULL, '2023-11-02 02:47:15', '2023-11-02 02:47:15'),
+(2, 'Judul Ke dua', 'judul-kedua', 'Lorem ipsum ke dua', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit in voluptas saepe officia nihil quo soluta, sed laboriosam vel minima praesentium odit voluptatum perferendis ducimus tempore explicabo, sequi molestias assumenda impedit, dolorem numquam voluptate! Incidunt voluptates deleniti sapiente perferendis, dolor odio! Maiores molestiae voluptatum modi delectus. Quam quisquam at numquam qui laboriosam.</p> <p>Sed ipsam reiciendis commodi nemo laboriosam cum autem earum illo! Non fugiat dolorem molestias, quisquam doloremque, quo eos consequuntur nam autem nesciunt amet? Doloribus illo accusamus quas non laboriosam explicabo sit vitae cumque fugiat repellendus, dolore, veritatis consequatur nihil voluptatibus ad ex inventore assumenda neque! Consequuntur veritatis doloremque ea! Fugit, distinctio consequatur! Dolorem non sapiente corrupti iusto.</p> <p>Aliquam optio fuga debitis doloremque architecto beatae temporibus, dolores ducimus earum atque non at rem odio aliquid cumque? Eius beatae eligendi id ab sit maxime ea veniam doloribus dolorum dolorem, consequatur cum numquam natus ipsa voluptatem deleniti porro? Voluptas, possimus nostrum.</p>', NULL, '2023-11-02 02:48:28', '2023-11-02 02:48:28'),
+(3, 'Judul Ke Tiga', 'judul-ketiga', 'Lorem ipsum ke tiga', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit in voluptas saepe officia nihil quo soluta, sed laboriosam vel minima praesentium odit voluptatum perferendis ducimus tempore explicabo, sequi molestias assumenda impedit, dolorem numquam voluptate! Incidunt voluptates deleniti sapiente perferendis, dolor odio! Maiores molestiae voluptatum modi delectus. Quam quisquam at numquam qui laboriosam.</p> <p>Sed ipsam reiciendis commodi nemo laboriosam cum autem earum illo! Non fugiat dolorem molestias, quisquam doloremque, quo eos consequuntur nam autem nesciunt amet? Doloribus illo accusamus quas non laboriosam explicabo sit vitae cumque fugiat repellendus, dolore, veritatis consequatur nihil voluptatibus ad ex inventore assumenda neque! Consequuntur veritatis doloremque ea! Fugit, distinctio consequatur! Dolorem non sapiente corrupti iusto.</p> <p>Aliquam optio fuga debitis doloremque architecto beatae temporibus, dolores ducimus earum atque non at rem odio aliquid cumque? Eius beatae eligendi id ab sit maxime ea veniam doloribus dolorum dolorem, consequatur cum numquam natus ipsa voluptatem deleniti porro? Voluptas, possimus nostrum.</p>', NULL, '2023-11-02 02:49:00', '2023-11-02 02:49:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -106,14 +133,6 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `email_verified_at`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Putri Aulia Maulidina', 'ptriauliam@gmail.com', '$2y$10$cka7Ba81Wc102P5vaYxpXOroDE/v6aLnrUAtn8A.K8UkNCZc2u1Uq', NULL, NULL, '2023-11-01 19:39:17', '2023-11-01 19:39:17'),
-(2, 'Fadia Silva', 'fadia@gmail.com', '$2y$10$Fxdb0cnIg7oOxmwhqMfNwOGGaI0Iiu6w7dwHyQwq/rQIy3rH3GbeG', NULL, NULL, '2023-11-01 19:44:05', '2023-11-01 19:44:05');
 
 --
 -- Indexes for dumped tables
@@ -147,6 +166,13 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `posts_slug_unique` (`slug`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -167,7 +193,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -176,10 +202,16 @@ ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

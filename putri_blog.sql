@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 02, 2023 at 09:52 AM
+-- Generation Time: Nov 03, 2023 at 05:56 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `putri_blog`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
+(1, ' Web Programming', 'web-programming', '2023-11-02 22:51:03', '2023-11-02 22:51:03'),
+(2, ' Personal', 'personal', '2023-11-02 22:51:03', '2023-11-02 22:51:03');
 
 -- --------------------------------------------------------
 
@@ -58,7 +80,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2023_11_02_041817_create_posts_table', 1);
+(5, '2023_11_02_041817_create_posts_table', 1),
+(6, '2023_11_02_102923_create_categories_table', 1);
 
 -- --------------------------------------------------------
 
@@ -99,6 +122,8 @@ CREATE TABLE `personal_access_tokens` (
 
 CREATE TABLE `posts` (
   `id` bigint UNSIGNED NOT NULL,
+  `category_id` bigint UNSIGNED NOT NULL,
+  `user_id` bigint UNSIGNED NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `excerpt` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -112,10 +137,11 @@ CREATE TABLE `posts` (
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`id`, `title`, `slug`, `excerpt`, `body`, `published_at`, `created_at`, `updated_at`) VALUES
-(1, 'Judul Pertama', 'judul-pertama', 'Lorem ipsum pertama', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit in voluptas saepe officia nihil quo soluta, sed laboriosam vel minima praesentium odit voluptatum perferendis ducimus tempore explicabo, sequi molestias assumenda impedit, dolorem numquam voluptate! Incidunt voluptates deleniti sapiente perferendis, dolor odio! Maiores molestiae voluptatum modi delectus. Quam quisquam at numquam qui laboriosam.</p> <p>Sed ipsam reiciendis commodi nemo laboriosam cum autem earum illo! Non fugiat dolorem molestias, quisquam doloremque, quo eos consequuntur nam autem nesciunt amet? Doloribus illo accusamus quas non laboriosam explicabo sit vitae cumque fugiat repellendus, dolore, veritatis consequatur nihil voluptatibus ad ex inventore assumenda neque! Consequuntur veritatis doloremque ea! Fugit, distinctio consequatur! Dolorem non sapiente corrupti iusto.</p> <p>Aliquam optio fuga debitis doloremque architecto beatae temporibus, dolores ducimus earum atque non at rem odio aliquid cumque? Eius beatae eligendi id ab sit maxime ea veniam doloribus dolorum dolorem, consequatur cum numquam natus ipsa voluptatem deleniti porro? Voluptas, possimus nostrum.</p>', NULL, '2023-11-02 02:47:15', '2023-11-02 02:47:15'),
-(2, 'Judul Ke dua', 'judul-kedua', 'Lorem ipsum ke dua', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit in voluptas saepe officia nihil quo soluta, sed laboriosam vel minima praesentium odit voluptatum perferendis ducimus tempore explicabo, sequi molestias assumenda impedit, dolorem numquam voluptate! Incidunt voluptates deleniti sapiente perferendis, dolor odio! Maiores molestiae voluptatum modi delectus. Quam quisquam at numquam qui laboriosam.</p> <p>Sed ipsam reiciendis commodi nemo laboriosam cum autem earum illo! Non fugiat dolorem molestias, quisquam doloremque, quo eos consequuntur nam autem nesciunt amet? Doloribus illo accusamus quas non laboriosam explicabo sit vitae cumque fugiat repellendus, dolore, veritatis consequatur nihil voluptatibus ad ex inventore assumenda neque! Consequuntur veritatis doloremque ea! Fugit, distinctio consequatur! Dolorem non sapiente corrupti iusto.</p> <p>Aliquam optio fuga debitis doloremque architecto beatae temporibus, dolores ducimus earum atque non at rem odio aliquid cumque? Eius beatae eligendi id ab sit maxime ea veniam doloribus dolorum dolorem, consequatur cum numquam natus ipsa voluptatem deleniti porro? Voluptas, possimus nostrum.</p>', NULL, '2023-11-02 02:48:28', '2023-11-02 02:48:28'),
-(3, 'Judul Ke Tiga', 'judul-ketiga', 'Lorem ipsum ke tiga', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit in voluptas saepe officia nihil quo soluta, sed laboriosam vel minima praesentium odit voluptatum perferendis ducimus tempore explicabo, sequi molestias assumenda impedit, dolorem numquam voluptate! Incidunt voluptates deleniti sapiente perferendis, dolor odio! Maiores molestiae voluptatum modi delectus. Quam quisquam at numquam qui laboriosam.</p> <p>Sed ipsam reiciendis commodi nemo laboriosam cum autem earum illo! Non fugiat dolorem molestias, quisquam doloremque, quo eos consequuntur nam autem nesciunt amet? Doloribus illo accusamus quas non laboriosam explicabo sit vitae cumque fugiat repellendus, dolore, veritatis consequatur nihil voluptatibus ad ex inventore assumenda neque! Consequuntur veritatis doloremque ea! Fugit, distinctio consequatur! Dolorem non sapiente corrupti iusto.</p> <p>Aliquam optio fuga debitis doloremque architecto beatae temporibus, dolores ducimus earum atque non at rem odio aliquid cumque? Eius beatae eligendi id ab sit maxime ea veniam doloribus dolorum dolorem, consequatur cum numquam natus ipsa voluptatem deleniti porro? Voluptas, possimus nostrum.</p>', NULL, '2023-11-02 02:49:00', '2023-11-02 02:49:00');
+INSERT INTO `posts` (`id`, `category_id`, `user_id`, `title`, `slug`, `excerpt`, `body`, `published_at`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 'Judul Pertama', 'judul-pertama', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores obcaecati repudiandae reiciendis quia dolor consequuntur error doloribus assumenda nihil quas rem', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores obcaecati repudiandae reiciendis quia dolor consequuntur error doloribus assumenda nihil quas rem, nemo optio, vitae officiis? Corrupti excepturi nemo inventore facilis ipsam optio necessitatibus, modi quas illum! Voluptate sint explicabo illo porro, corrupti nihil consequuntur et animi beatae voluptatem. Molestias consectetur provident tenetur molestiae, quasi id dignissimos quos. Exercitationem perferendis nobis qui obcaecati explicabo saepe hic quis animi impedit facilis labore, earum consequatur fugiat eveniet, similique adipisci, nesciunt voluptate numquam amet a officiis eaque quam autem eius! Ut, molestiae dolore at qui id, iusto laboriosam cum vero nobis repellat quod amet?', NULL, '2023-11-02 22:51:03', '2023-11-02 22:51:03'),
+(2, 1, 1, 'Judul Ke Dua', 'judul-ke-dua', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores obcaecati repudiandae reiciendis quia dolor consequuntur error doloribus assumenda nihil quas rem', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores obcaecati repudiandae reiciendis quia dolor consequuntur error doloribus assumenda nihil quas rem, nemo optio, vitae officiis? Corrupti excepturi nemo inventore facilis ipsam optio necessitatibus, modi quas illum! Voluptate sint explicabo illo porro, corrupti nihil consequuntur et animi beatae voluptatem. Molestias consectetur provident tenetur molestiae, quasi id dignissimos quos. Exercitationem perferendis nobis qui obcaecati explicabo saepe hic quis animi impedit facilis labore, earum consequatur fugiat eveniet, similique adipisci, nesciunt voluptate numquam amet a officiis eaque quam autem eius! Ut, molestiae dolore at qui id, iusto laboriosam cum vero nobis repellat quod amet?', NULL, '2023-11-02 22:51:03', '2023-11-02 22:51:03'),
+(3, 2, 1, 'Judul Ke Tiga', 'judul-ke-tiga', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores obcaecati repudiandae reiciendis quia dolor consequuntur error doloribus assumenda nihil quas rem', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores obcaecati repudiandae reiciendis quia dolor consequuntur error doloribus assumenda nihil quas rem, nemo optio, vitae officiis? Corrupti excepturi nemo inventore facilis ipsam optio necessitatibus, modi quas illum! Voluptate sint explicabo illo porro, corrupti nihil consequuntur et animi beatae voluptatem. Molestias consectetur provident tenetur molestiae, quasi id dignissimos quos. Exercitationem perferendis nobis qui obcaecati explicabo saepe hic quis animi impedit facilis labore, earum consequatur fugiat eveniet, similique adipisci, nesciunt voluptate numquam amet a officiis eaque quam autem eius! Ut, molestiae dolore at qui id, iusto laboriosam cum vero nobis repellat quod amet?', NULL, '2023-11-02 22:51:03', '2023-11-02 22:51:03'),
+(4, 2, 2, 'Judul Ke Empat', 'judul-ke-empat', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores obcaecati repudiandae reiciendis quia dolor consequuntur error doloribus assumenda nihil quas rem', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores obcaecati repudiandae reiciendis quia dolor consequuntur error doloribus assumenda nihil quas rem, nemo optio, vitae officiis? Corrupti excepturi nemo inventore facilis ipsam optio necessitatibus, modi quas illum! Voluptate sint explicabo illo porro, corrupti nihil consequuntur et animi beatae voluptatem. Molestias consectetur provident tenetur molestiae, quasi id dignissimos quos. Exercitationem perferendis nobis qui obcaecati explicabo saepe hic quis animi impedit facilis labore, earum consequatur fugiat eveniet, similique adipisci, nesciunt voluptate numquam amet a officiis eaque quam autem eius! Ut, molestiae dolore at qui id, iusto laboriosam cum vero nobis repellat quod amet?', NULL, '2023-11-02 22:51:03', '2023-11-02 22:51:03');
 
 -- --------------------------------------------------------
 
@@ -135,8 +161,24 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `email_verified_at`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, ' Putri Aulia Maulidina', 'ptriauliam@gmail.com', '$2y$10$tuBjR0JB8IGMyD3CzvdUWOdqdxMbCzGsPzmFY21m55/DwmjlkqNaO', NULL, NULL, '2023-11-02 22:51:03', '2023-11-02 22:51:03'),
+(2, 'Maulidina Aulia Putri', 'Maaulidina@gmail.com', '$2y$10$0vqfAxTafa6lwbQD0/t3V.I1fJTwZKHHnjMM8KJkJKVb.nfikZSI.', NULL, NULL, '2023-11-02 22:51:03', '2023-11-02 22:51:03');
+
+--
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `categories_name_unique` (`name`),
+  ADD UNIQUE KEY `categories_slug_unique` (`slug`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -184,6 +226,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -193,7 +241,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -205,13 +253,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

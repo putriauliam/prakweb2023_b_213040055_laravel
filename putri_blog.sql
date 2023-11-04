@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 04, 2023 at 12:22 PM
+-- Generation Time: Nov 04, 2023 at 04:31 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -184,9 +184,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `email_verified_at`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Raden Natsir', 'sidiq.aryani', 'xprasasta@example.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '2023-11-03 03:33:24', 'iqxxbfOAqO', '2023-11-03 03:33:24', '2023-11-03 03:33:24'),
-(2, 'Paiman Habibi', 'jagaraga.winarno', 'eyuniar@example.org', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '2023-11-03 03:33:24', 'V7nyj64aga', '2023-11-03 03:33:24', '2023-11-03 03:33:24'),
-(3, 'Kambali Salahudin', 'janet94', 'laila54@example.net', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '2023-11-03 03:33:24', '1lLYPo0TFO', '2023-11-03 03:33:24', '2023-11-03 03:33:24'),
-(7, 'Putri Aulia Maulidina', 'ptriauliam', 'putriauliam@unpas.ac.id', '$2y$10$tWfZvBmHV9qmqAbia8hhaOPRxEe8LgjTovLm221dJl.9DkPyGefsO', NULL, NULL, '2023-11-04 05:21:24', '2023-11-04 05:21:24');
+(2, 'Paiman Habibi', 'jagaraga.winarno', 'eyuniar@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '2023-11-03 03:33:24', 'cRgAPYqlmhxuEm2zBFkSpFIEd4lnAZXlqsvN3Hm8zG0LbUgV71JBASJCCavk', '2023-11-03 03:33:24', '2023-11-03 03:33:24'),
+(3, 'Kambali Salahudin', 'janet94', 'laila54@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '2023-11-03 03:33:24', 'qyshfhY9VJtRw6PQSMZ9hWDyALFeTq7rZwdpB4vqZkyElJiv97vA818kbEYr', '2023-11-03 03:33:24', '2023-11-03 03:33:24'),
+(7, 'Putri Aulia Maulidina', 'ptriauliam', 'putriauliam@gmail.com', '$2y$10$tWfZvBmHV9qmqAbia8hhaOPRxEe8LgjTovLm221dJl.9DkPyGefsO', NULL, NULL, '2023-11-04 05:21:24', '2023-11-04 05:21:24');
 
 --
 -- Indexes for dumped tables
